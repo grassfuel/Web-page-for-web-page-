@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>画面が繊維</title>
+        <link rel="stylesheet" href="./script/style.css">
+    </head>
+
+    <body>
+        <input type="checkbox" id="button_1_status">
+        <input type="checkbox" id="button_2_status">
+        <div class="top_bar">    
+            <label for="button_1_status" id="button_1_off">&#12296&#12296　Back</label>
+            <label for="button_2_status" id="button_2_off">&#12296&#12296　Back</label>
+            <div id="clock_tile">hh:mm:ss</div>
+            <div class="pull_tile"></div>
+        </div> 
+
+        <iframe src="etc2.html" id="screen_1"></iframe>
+        <iframe src="etc1.html" id="screen_2"></iframe>
+        
+        <div class="centering_parent">
+            <span id="button1">画面1(Screen1)<label for="button_1_status" id="button_1_on"></label></span>
+            <span id="button2">画面2(Screen2)<label for="button_2_status" id="button_2_on"></label></span>
+        </div> 
+    </body>
+</html>
