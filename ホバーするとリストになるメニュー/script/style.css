@@ -43,6 +43,7 @@ html,body{
     transition-timing-function:ease-out;
     line-height: 216%;
     text-align:center;
+    z-index:2;
 }
 
 .menu_index{
@@ -51,24 +52,61 @@ html,body{
     width:100%;
     top:0%;
     left:0%;
+    display:none;
     position:relative;
     background-color:#fff;
     opacity:0;
     transition-property:all;
     transition-duration:0.1s;
     transition-timing-function:linear;
+    z-index:1;
+
+}
+.menu_elements{
+    float:left;
+    height:100%;
+    width:100%;
+    top:0%;
+    left:0%;
+    position:relative;
+    background-color:#999;
+    opacity:0;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-timing-function:linear;
+    z-index:0;
 }
 
 .menu_head:hover{
     background-color:#fff;
     color:#000;
 }
- .menu_index:hover{
+.menu_index:hover{
     background-color:#000;
     color:#fff;
+}
+.menu_elements:hover{
+    color:#999;
+    background-color:#fff;
 }
 .menu_head:hover .menu_index{
     top:0%;
     left:0%;
     opacity:1;
+    display:inline;
+}
+.menu_index:hover .menu_elements{
+    top:-100%;
+    left:100%;
+    opacity:1;
+    display:inline;
+}
+
+@keyframes open_menu{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
 }
