@@ -1,0 +1,328 @@
+*{
+    position:absolute;
+    margin:0%;
+    user-select: none;
+}
+html,body{
+    width:100%;
+    height:100%;
+    position: fixed;
+    overflow: hidden;
+    background:#ddd;
+}
+
+
+.left_bar{
+    user-select: none;
+    width:20%;
+    height:100%;
+    top:0%;
+    left:0%;
+    background:#7744dd;
+    color:#eee;
+    transition-property:all;
+    transition-duration:0.2s;
+    transition-timing-function:ease-out;
+}
+.left_bar_index{
+    position: relative;
+    float:left;
+    width:100%;
+    height:10%;
+    font-size:2vmin;
+    line-height: 10vh;
+    background-color:#602dc5;
+    border-bottom:solid 0.1vw #7744dd;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-timing-function:ease-out;
+}
+.left_bar_logo{
+    position: relative;
+    float:left;
+    width:74%;
+    height:10%;
+    background-color:#602dc5;
+    border-bottom:solid 0.1vw #7744dd;
+    font-size:5vmin;
+    line-height: 10vh;
+    font-weight:1000;
+    font-family: 'Ubuntu', sans-serif;
+}
+.left_bar_button{
+    position: relative;
+    float:left;
+    width:25%;
+    height:10%;
+    left:0%;
+    font-size:2vmin;
+    text-align: center;
+    line-height: 10vh;
+    background-color:#602dc5;
+    border-bottom:solid 0.1vw #7744dd;
+    border-left:solid 0.1vw #7744dd;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-delay:0.1s;
+    transition-timing-function:ease-out;
+}
+#left_bar_status{
+    display:none;
+}
+.left_bar_index:hover{
+    background-color:#ded7eb;
+    color:#602dc5;
+}
+#left_bar_status:checked + .left_bar{
+    left:-20%;
+}
+#left_bar_status:checked + .left_bar .left_bar_button{
+    left:25%;
+    width:10%;
+    border-bottom-right-radius: 20%;
+}
+
+
+.right_bar{
+    user-select: none;
+    width:20%;
+    height:100%;
+    top:0%;
+    right:0%;
+    background:#7744dd;
+    color:#eee;
+    transition-property:all;
+    transition-duration:0.2s;
+    transition-timing-function:ease-out;
+}
+.right_bar_index{
+    position: relative;
+    float:left;
+    width:100%;
+    height:10%;
+    font-size:2vmin;
+    line-height: 10vh;
+    background-color:#602dc5;
+    border-bottom:solid 0.1vw #7744dd;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-timing-function:ease-out;
+}
+.right_bar_logo{
+    position: relative;
+    float:right;
+    width:74%;
+    height:10%;
+    background-color:#602dc5;
+    border-bottom:solid 0.1vw #7744dd;
+    line-height: 10vh;
+}
+.right_bar_button{
+    position: relative;
+    float:right;
+    width:12%;
+    height:10%;
+    right:100%;
+    font-size:2vmin;
+    line-height: 10vh;
+    background-color:#602dc5;
+    border-bottom:solid 0.1vw #7744dd;
+    border-right:solid 0.1vw #7744dd;
+    border-bottom-left-radius: 20%;
+    border-top-left-radius: 20%;
+}
+.bar_guide{
+    position:relative;
+    width:0%;
+    height:0%;
+    top:40%;
+    left:0%;
+    transform: rotateZ(90deg);
+    border-bottom:solid 1vw #fd9b1a;
+	border-right:solid 1vw transparent;
+	border-left:solid 1vw transparent;
+    transition-property:all;
+    transition-duration:0.2s;
+    transition-timing-function:ease-out;
+}
+#right_bar_status{
+    display:none;
+}
+.right_bar_index:hover{
+    background-color:#ded7eb;
+    color:#602dc5;
+}
+#right_bar_status:checked + .right_bar{
+    right:-20%;
+}
+#right_bar_status:checked + .right_bar .right_bar_button .bar_guide{
+    transform:rotateZ(-90deg);
+}
+
+
+.bottom_bar{
+    left:0%;
+    bottom:-6%;
+    width:100%;
+    height:10%;
+    background:#7744dd;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-timing-function:ease-out;
+}
+.bottom_bar_index{
+    position:relative;
+    float:left;
+    width:24.9%;
+    bottom:-50%;
+    height:100%;
+    background:#602dc5;
+    border-right:solid 0.1vw #7744dd;
+    border-top:solid 0.1vw #7744dd;
+    color:#eee;
+    font-size:5vmin;
+    line-height: 10vh;
+    font-weight:1000;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    transition-property:all;
+    transition-duration:0.2s;
+    transition-timing-function:ease-out;
+}
+.bottom_bar_index:hover{
+    background-color:#ded7eb;
+    color:#602dc5;
+}
+.bottom_bar:hover .bottom_bar_index{
+    bottom:0%;
+}
+.bottom_bar:hover{
+    bottom:0%;
+}
+
+
+
+.top_bar{
+    user-select: none;
+    width:100%;
+    height:10%;
+    top:-11%;
+    left:0%;
+    background:#7744dd;
+    color:#eee;
+    transition-property:all;
+    transition-duration:0.2s;
+    transition-timing-function:ease-out;
+}
+
+.top_bar_button{
+    position: absolute;
+    width:0%;
+    height:0%;
+    top:17%;
+    left:49.6%;
+    background-color:#602dc5;
+    border-bottom:solid 0.1vw #7744dd;
+    border-top:solid 0.1vw #7744dd;
+}
+.top_bar_guide{
+    position:relative;
+    width:0%;
+    height:0%;
+    top:0%;
+    left:49.7%;
+    transform: rotateZ(45deg);
+    border-bottom:solid 3vw #7744dd;
+	border-top:solid 3vw transparent;
+	border-left:solid 3vw transparent;
+    transition-property:all;
+    transition-duration:0.2s;
+    transition-timing-function:ease-out;
+}
+#top_bar_status{
+    display:none;
+}
+#top_bar_status:checked + .top_bar{
+    top:0%;
+}
+
+
+
+
+
+
+/*-- リスト --*/
+.menu_head{
+    float:left;
+    position:static;
+    height:100%;
+    width:24.9%;
+    top:0%;
+    left:0%;
+    background:#602dc5;
+    border-right:solid 0.1vw #7744dd;
+    border-bottom:solid 0.1vw #7744dd;
+    color:#eee;
+    font-size:4.7vmin;
+    line-height: 10vh;
+    font-weight:1000;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-timing-function:ease-out;
+    line-height: 216%;
+    text-align:center;
+    z-index:2;
+}
+
+.menu_index{
+    float:left;
+    height:100%;
+    width:100%;
+    top:0%;
+    left:0%;
+    display:none;
+    position:relative;
+    background-color:#fff;
+    border-right:solid 0.1vw #7744dd;
+    border-bottom:solid 0.1vw #7744dd;
+    opacity:0;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-timing-function:linear;
+    z-index:1;
+
+}
+.menu_elements{
+    float:left;
+    height:100%;
+    width:100%;
+    top:0%;
+    left:0%;
+    position:relative;
+    background-color:#999;
+    opacity:0;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-timing-function:linear;
+    z-index:0;
+}
+.menu_head:hover{
+    background-color:#ded7eb;
+    color:#602dc5;
+}
+.menu_index:hover{
+    background-color:#ded7eb;
+    color:#602dc5;
+}
+.menu_head:hover .menu_index{
+    top:0%;
+    left:0%;
+    opacity:1;
+    display:inline;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
