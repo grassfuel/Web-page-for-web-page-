@@ -1,13 +1,35 @@
+class Room {
+    constructor(src){
+        this.img = new Image();
+        this.img.src = src; 
+    }
+    draw(ctx){
+        ctx.drawImage(this.img,0,0,canvas.getBoundingClientRect().width*0.7,canvas.getBoundingClientRect().height*0.7);
+    }
+}
+
+class Click_object{
+    constructor(x,y,disp,src){
+        this.x = x;
+        this.y = y;
+        this.disp = disp;
+        this.img = new Image();
+        this.img.src = src;
+    }
+    draw(ctx,page){
+        if(page == this.disp){
+            ctx.drawImage(this.img,this.x,this.y);
+        }
+    }
+}
+
 function key_get(){
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
     ctx.font=String(canvas.width/5)+"px Ariel";
     let i=0;
-    let page = [new Image(),new Image(),new Image(),new Image()];
-    page[0].src = "./img/front.png";
-    page[1].src = "./img/right.png";
-    page[2].src = "./img/back.png";
-    page[3].src = "./img/left.png";
+    let page = [new Room("./img/front.png"),new Room("./img/right.png"),new Room("./img/back.png"),new Room("./img/left.png")];
+    let item = new Click_object(10,10,3,"./img/item.png");
     let pagecount = 0;
     function get_down_key(e){
         ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -35,17 +57,17 @@ function key_get(){
         if(e.clientX > canvas.getBoundingClientRect().width*0.95){
             pagecount+=1;
             if(pagecount > 3){pagecount = 0}
-            ctx.drawImage(page[pagecount],0,0,canvas.getBoundingClientRect().width,canvas.getBoundingClientRect().height)
-            console.log("page:"+ page[pagecount]);
+            console.log("page:"+ pagecount);
         }else{
             if(e.clientX < canvas.getBoundingClientRect().width*0.05){
                 pagecount -= 1;
-                if(pagecount < 0){pagecount = 4}
-                ctx.drawImage(page[pagecount],0,0,canvas.getBoundingClientRect().width,canvas.getBoundingClientRect().height)
-                console.log("page:"+ page[pagecount]);
+                if(pagecount < 0){pagecount = 3}
             }
         }
-        console.log(e)
+        console.log("page:"+ pagecount);
+        page[pagecount].draw(ctx);
+        item.draw(ctx,pagecount);
+
     }
     canvas.setAttribute("tabindex",0);
     canvas.addEventListener("keyup",get_up_key,false);
