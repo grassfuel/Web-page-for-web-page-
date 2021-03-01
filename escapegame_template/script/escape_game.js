@@ -1,20 +1,32 @@
-class Room {
+//全体の型
+class Escape_game_object{
     constructor(src){
         this.img = new Image();
         this.img.src = src; 
+    }
+    draw(ctx){
+        ctx.drawImage(this.img,0,0);
+    }
+}
+//部屋の描画
+class Room extends Escape_game_object{
+    constructor(src){
+        super(src);
     }
     draw(ctx){
         ctx.drawImage(this.img,0,0,canvas.getBoundingClientRect().width*0.7,canvas.getBoundingClientRect().height*0.7);
     }
 }
 
-class Click_object{
-    constructor(x,y,disp,src){
+//クリック可能オブジェクトの型
+class Click_object extends Escape_game_object{
+    constructor(x,y,hit_width,hit_height,disp,src){
+        super(src);
         this.x = x;
         this.y = y;
         this.disp = disp;
-        this.img = new Image();
-        this.img.src = src;
+        this.hit_width = hit_width;
+        this.hit_height = hit_height;
     }
     draw(ctx,page){
         if(page == this.disp){
@@ -22,6 +34,21 @@ class Click_object{
         }
     }
 }
+//視点変更用ボタン
+class View_change extends Click_object{
+    constructor(x,y,hit_width,hit_height,disp,skip_page){
+        super(x,y,hit_width,hit_height,disp,null)
+        this.skip_page = skip_page;
+    }
+    draw(ctx){
+        ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
+    }
+    click(ctx){
+        ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
+        return this.skip_page;
+    }
+}
+
 
 function key_get(){
     let canvas = document.getElementById("canvas");
