@@ -46,9 +46,11 @@ class View_change extends Click_object{
         }
     }
     click(ctx,cursor){
-        ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
         if(cursor.clientX > this.x && cursor.clientX < this.x+this.hit_width && cursor.clientY > this.y && cursor.clientY < this.y+this.hit_height){
+            ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
             return this.skip_page;
+        }else{
+            return 0;
         }
     }
 }
@@ -64,6 +66,8 @@ function key_get(){
     let right_view = new View_change(canvas.getBoundingClientRect().width*0.67,0,canvas.getBoundingClientRect().width*0.05,canvas.getBoundingClientRect().height,1);
     let left_view = new View_change(0,0,canvas.getBoundingClientRect().width*0.05,canvas.getBoundingClientRect().height,-1);
     let pagecount = 0;
+    let kensyou = 0;
+    console.log(pagecount);
     function get_down_key(e){
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.fillText(e.keyCode,parseInt(canvas.width/2.2),parseInt(canvas.height/2.2));
@@ -75,6 +79,7 @@ function key_get(){
         i+=1;
         if(i > 3){
             ctx.clearRect(0,0,canvas.width,canvas.height);
+            page[pagecount].draw(ctx);
             right_view.draw(ctx,e);
             left_view.draw(ctx,e);
         }
@@ -94,8 +99,14 @@ function key_get(){
         */
     }
     function get_click(e){
-        pagecount += right_view.click(ctx,e);
-        pagecount += left_view.click(ctx,e);
+        pagecount =  pagecount+right_view.click(ctx,e);
+        pagecount = pagecount+left_view.click(ctx,e);
+        if(pagecount > 3){
+            pagecount = 0;
+        }
+        if(pagecount < 0){
+            pagecount = 3;
+        }
         /*
         if(e.clientX > canvas.getBoundingClientRect().width*0.95){
             pagecount+=1;
@@ -108,7 +119,7 @@ function key_get(){
             }
         }
         */
-        console.log("page:"+ pagecount);
+        console.log(kensyou);
         page[pagecount].draw(ctx);
         item.draw(ctx,pagecount);
 
