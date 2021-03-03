@@ -14,7 +14,7 @@ class Room extends Escape_game_object{
         super(src);
     }
     draw(ctx){
-        ctx.drawImage(this.img,0,0,canvas.getBoundingClientRect().width*0.7,canvas.getBoundingClientRect().height*0.7);
+        ctx.drawImage(this.img,0,0,canvas.getBoundingClientRect().width*1,canvas.getBoundingClientRect().height*1);
     }
 }
 
@@ -41,12 +41,13 @@ class View_change extends Click_object{
         this.skip_page = skip_page;
     }
     draw(ctx,cursor){
-        if(cursor.clientX > this.x && cursor.clientX < this.x+this.hit_width && cursor.clientY > this.y && cursor.clientY < this.y+this.hit_height){
+        if(cursor.x > this.x && cursor.x < this.x+this.hit_width && cursor.y > this.y && cursor.y < this.y+this.hit_height){
             ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
+            console.log("判定内");
         }
     }
     click(ctx,cursor){
-        if(cursor.clientX > this.x && cursor.clientX < this.x+this.hit_width && cursor.clientY > this.y && cursor.clientY < this.y+this.hit_height){
+        if(cursor.x > this.x && cursor.x < this.x+this.hit_width && cursor.y > this.y && cursor.y < this.y+this.hit_height){
             ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
             return this.skip_page;
         }else{
@@ -63,11 +64,12 @@ function key_get(){
     let i=0;
     let page = [new Room("./img/front.png"),new Room("./img/right.png"),new Room("./img/back.png"),new Room("./img/left.png")];
     let item = new Click_object(10,10,3,"./img/item.png");
-    let right_view = new View_change(canvas.getBoundingClientRect().width*0.67,0,canvas.getBoundingClientRect().width*0.05,canvas.getBoundingClientRect().height,1);
-    let left_view = new View_change(0,0,canvas.getBoundingClientRect().width*0.05,canvas.getBoundingClientRect().height,-1);
+    let right_view = new View_change(canvas.getBoundingClientRect().width*0.92,0,canvas.getBoundingClientRect().width*0.08,canvas.getBoundingClientRect().height,1);
+    let left_view = new View_change(0,0,canvas.getBoundingClientRect().width*0.08,canvas.getBoundingClientRect().height,-1);
+    console.log(right_view.hit_width+":"+right_view.x+":"+right_view.hit_height);
+    ctx.fillRect(280,0,100,canvas.getBoundingClientRect().height)
     let pagecount = 0;
     let kensyou = 0;
-    console.log(pagecount);
     function get_down_key(e){
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.fillText(e.keyCode,parseInt(canvas.width/2.2),parseInt(canvas.height/2.2));
@@ -119,7 +121,6 @@ function key_get(){
             }
         }
         */
-        console.log(kensyou);
         page[pagecount].draw(ctx);
         item.draw(ctx,pagecount);
 
