@@ -43,7 +43,6 @@ class View_change extends Click_object{
     draw(ctx,cursor){
         if(cursor.x > this.x && cursor.x < this.x+this.hit_width && cursor.y > this.y && cursor.y < this.y+this.hit_height){
             ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
-            console.log("判定内");
         }
     }
     click(ctx,cursor){
@@ -59,6 +58,9 @@ class View_change extends Click_object{
 
 function key_get(){
     let canvas = document.getElementById("canvas");
+    //console.log("<canvas id=\"" + canvas.id + "\" width=\"" + canvas.getBoundingClientRect().width +"px\" height=\""+ canvas.getBoundingClientRect().height +"px\"></canvas>");
+    canvas.width = canvas.getBoundingClientRect().width;
+    canvas.height = canvas.getBoundingClientRect().height;
     let ctx = canvas.getContext("2d");
     ctx.font=String(canvas.width/5)+"px Ariel";
     let i=0;
@@ -67,7 +69,6 @@ function key_get(){
     let right_view = new View_change(canvas.getBoundingClientRect().width*0.92,0,canvas.getBoundingClientRect().width*0.08,canvas.getBoundingClientRect().height,1);
     let left_view = new View_change(0,0,canvas.getBoundingClientRect().width*0.08,canvas.getBoundingClientRect().height,-1);
     console.log(right_view.hit_width+":"+right_view.x+":"+right_view.hit_height);
-    ctx.fillRect(280,0,100,canvas.getBoundingClientRect().height)
     let pagecount = 0;
     let kensyou = 0;
     function get_down_key(e){
