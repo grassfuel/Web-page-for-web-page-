@@ -1,0 +1,8 @@
+*{
+    user-select: none;
+}
+#canvas{
+    width:420px;
+    height:300px;
+    border:solid 1px black;
+}
