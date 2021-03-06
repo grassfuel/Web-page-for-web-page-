@@ -38,9 +38,18 @@ class Side_bar_b extends Click_object{
     draw(ctx){
         ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
     }
-    click(ctx,canvas,cursor,side_bar){
-        console.log(cursor.layerX +":"+ cursor.layerY);
+    hit_box(cursor){
         if(cursor.layerX > this.x && cursor.layerX < this.x+this.hit_width && cursor.layerY > this.y && cursor.layerY < this.y+this.hit_height){
+            //hit
+            return 1;
+        }else{
+            //miss
+            return 0;
+        }
+    }
+    click(ctx,canvas,cursor,side_bar,hide_b){
+        console.log(cursor.layerX +":"+ cursor.layerY);
+        if(this.hit_box(cursor) == 1){
             ctx.clearRect(0,0,canvas.width,canvas.height);
             if(this.x <= canvas.width*0.8){
                 this.x = canvas.width - canvas.width*0.05
@@ -53,7 +62,7 @@ class Side_bar_b extends Click_object{
             }
             this.draw(ctx);
             side_bar.draw(ctx);
-
+            hide_b.draw(ctx);
             return 1;
         }else{
             return 0;
@@ -68,7 +77,17 @@ class Side_bar_m extends Click_object{
         ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
     }
 }
+class hide_button extends Click_object{
+    constructor(x,y,hit_width,hit_height,disp,src){
+        super(x,y,hit_width,hit_height,disp,src);
+    }
+    draw(ctx){
+        ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
+    }
+    click(ctx,cavas,cursor){
 
+    }
+}
 function key_get(){
     let canvas = document.getElementById("canvas");
     canvas.width = canvas.getBoundingClientRect().width;
