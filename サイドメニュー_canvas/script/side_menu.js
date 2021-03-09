@@ -1,17 +1,7 @@
 //大体escapegame_templateからの使いまわし というかそのためにclassで作った.
-class Escape_game_object{
-    constructor(src){
-        this.img = new Image();
-        this.img.src = src; 
-    }
-    draw(ctx){
-        ctx.drawImage(this.img,0,0);
-    }
-}
 //クリック可能オブジェクトの型
-class Click_object extends Escape_game_object{
-    constructor(x,y,hit_width,hit_height,disp,src){
-        super(src);
+class Click_object{
+    constructor(x,y,hit_width,hit_height,disp){
         this.x = x;
         this.y = y;
         this.disp = disp;
@@ -32,9 +22,6 @@ class Click_object extends Escape_game_object{
 }
 
 class Side_bar_b extends Click_object{
-    constructor(x,y,hit_width,hit_height,disp,src){
-        super(x,y,hit_width,hit_height,disp,src);
-    }
     draw(ctx){
         ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
     }
@@ -74,9 +61,6 @@ class Side_bar_b extends Click_object{
     }
 }
 class Side_bar_m extends Click_object{
-    constructor(x,y,hit_width,hit_height,disp,src){
-        super(x,y,hit_width,hit_height,disp,src);
-    }
     draw(ctx){
         ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
     }
