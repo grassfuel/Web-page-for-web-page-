@@ -66,9 +66,10 @@ class Side_bar_m extends Click_object{
     }
 }
 class hide_button extends Click_object{
-    constructor(x,y,hit_width,hit_height,disp,src){
-        super(x,y,hit_width,hit_height,disp,src);
+    constructor(x,y,hit_width,hit_height,disp,hide_object){
+        super(x,y,hit_width,hit_height,disp);
         this.hide = 0;
+        this.hide_object = document.getElementById(hide_object);
     }
     draw(ctx){
         ctx.fillRect(this.x,this.y,this.hit_width,this.hit_height);
@@ -76,8 +77,10 @@ class hide_button extends Click_object{
     click(ctx,cavas,cursor){
         if(this.hide == 0){
             this.hide = 1;
+            this.hide_object.style.display = "inline"
         }else{
             this.hide = 0;
+            this.hide_object.style.display = "hide";
         }
     }
 }
@@ -86,9 +89,9 @@ function key_get(){
     canvas.width = canvas.getBoundingClientRect().width;
     canvas.height = canvas.getBoundingClientRect().height;
     let ctx = canvas.getContext("2d");
-    let side_barmain = new Side_bar_m(canvas.width*0.8,0,canvas.width*0.2,canvas.height,0);
-    let side_barbutton = new Side_bar_b(canvas.width*0.75,0,canvas.width*0.05,50,0);
-    let side_bar_hide = new hide_button(canvas.width*0.75,70,canvas.width*0.05,50,0)
+    let side_barmain = new Side_bar_m(canvas.width*0.8,0,canvas.width*0.2,canvas.height);
+    let side_barbutton = new Side_bar_b(canvas.width*0.75,0,canvas.width*0.05,50);
+    let side_bar_hide = new hide_button(canvas.width*0.75,70,canvas.width*0.05,50,"side_bar")
     side_barbutton.draw(ctx);
     side_barmain.draw(ctx);
 
