@@ -27,7 +27,7 @@ function morus(){
         "ｰ･ｰｰ":"Y",
         "ｰｰ･･":"Z",
 
-        "･ｰｰｰｰ":"ｰ",
+        "･ｰｰｰｰ":"1",
         "･･ｰｰｰ":"2",
         "･･･ｰｰ":"3",
         "････ｰ":"4",
@@ -36,7 +36,7 @@ function morus(){
         "ｰｰ･･･":"7",
         "ｰｰｰ･･":"8",
         "ｰｰｰｰ･":"9",
-        "ｰｰｰｰｰ":"･",
+        "ｰｰｰｰｰ":"0",
 
         "･ｰ･ｰ･ｰ":".",
         "ｰｰ･･ｰｰ":",",
@@ -110,14 +110,21 @@ function morus(){
         "ｰ･ｰｰ･ｰ":"(",
         "･ｰ･･ｰ･":")"
     }
+    const a_context = new AudioContext(); //音の追加
+    let shake = a_context.createOscillator();
+    shake.connect(a_context.destination);
     //マウスクリックの取得 変数 clickに格納
     key = document.getElementById("morus_input");
     let click = false;
     function on_click(){
         click = true;
+        shake.start();
     }
     function out_click(){
         click = false;
+        shake.stop();
+        shake = a_context.createOscillator();
+        shake.connect(a_context.destination);
     }
     key.setAttribute("tabindex",0);
     key.addEventListener("mousedown",on_click,false);
@@ -158,5 +165,7 @@ function morus(){
 }
 
 morus();
+
+
 
 
