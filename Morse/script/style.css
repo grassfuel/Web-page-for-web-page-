@@ -35,6 +35,12 @@ select{
 #morus_input:active{
     background: #ddd;
     border:solid 1px #000;
+    color:#ddd;
+}
+#guide{
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
 }
 #morus_status{
     top:65%;

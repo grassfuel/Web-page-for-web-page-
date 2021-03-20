@@ -8,14 +8,14 @@
         <h1>モールす打てる</h1>
         <p>モールスコードが打てます，左下にある四角いボタンをクリックの長短で文字が入力できます.</p>
         <h2>入力した文字確認</h2>
-        <select name="use_type">
+        <select id="select_type" name="use_type">
             <option value="0">欧文</option>
             <option value="1">和文</option>
         </select>
         <p>←選択すると，モールスの入力タイプが変わる</p>
         <div id="morus_position">
             <div id="morus_output">ここに表示されるぞ</div>
-            <div id="morus_input"></div>
+            <div id="morus_input" onclick="guide()"><h3 id="guide">Click</h3></div>
             <div id="morus_status"></div>
         </div>
         <script src="script/morse.js"></script>
