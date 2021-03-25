@@ -1,7 +1,6 @@
-function read_file(target){
-    read = document.getElementById("script");
-    file = new FileReader();
-    file.readAsText(read,"UTF-8");
+document.getElementById("input").addEventListener("change",read_file,false);
+function read_file(e){
+    console.log(e);
 }
 
 function change(){
