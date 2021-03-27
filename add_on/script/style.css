@@ -44,3 +44,54 @@ html,body{
     width:3vh;
     height:3vh;
 }
+
+#adds_setting{
+    position: relative;
+    left:55%;
+    top:17%;
+    background-color:chocolate;
+    width:10vh;
+    height:4vh;
+}
+#choice{
+    position: relative;
+    left:10%;
+    top:30%;
+    background-color:chocolate;
+    width:10vh;
+    height:4vh;
+}
+
+
+#hide_content{
+    position: relative;
+    left:3%;
+    top:3%;
+    background-color:chocolate;
+    width:7vh;
+    height:4vh;
+}
+#unsuitable{
+    position: relative;
+    left:30%;
+    top:-10%;
+    background-color:chocolate;
+    width:7vh;
+    height:4vh;
+}
+#see_again{
+    position: relative;
+    left:55%;
+    top:-23%;
+    background-color:chocolate;
+    width:7vh;
+    height:4vh;
+}
+#not_interested{
+    position: relative;
+    left:74%;
+    top:-37%;
+    background-color:chocolate;
+    width:7vh;
+    height:4vh;
+}
