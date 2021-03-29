@@ -1,34 +1,37 @@
+console.log("よみ");
+
+
 function add_by_before(){
-    document.getElementById("feedback").style.disp = "inline";
+    document.getElementById("feedback").style.display = "inline";
 }
 function add_by_after(){
-    document.getElementById("feedback").style.disp = "hide";
+    document.getElementById("feedback").style.display = "none";
 }
 function add_thumbnail(){
 
 }
 function add_close(){
-    document.getElementById("feedback").style.disp = "inline";
-    document.getElementById("choice").style.disp = "inline";
-    document.getElementById("adds_setting").style.disp = "inline";
-    document.getElementById("back").style.disp = "inline";
+    document.getElementById("feedback").style.display = "inline";
+    document.getElementById("choice").style.display = "inline";
+    document.getElementById("adds_setting").style.display = "inline";
+    document.getElementById("back").style.display = "inline";
 
-    document.getElementById("hide_content").style.disp = "hide";
-    document.getElementById("unsuitable").style.disp = "hide";
-    document.getElementById("see_again").style.disp = "hide";
-    document.getElementById("not_interested").style.disp = "hide";
+    document.getElementById("none_content").style.display = "none";
+    document.getElementById("unsuitable").style.display = "none";
+    document.getElementById("see_again").style.display = "none";
+    document.getElementById("not_interested").style.display = "none";
 }
 function add_back(){
-    document.getElementById("feedback").style.disp = "hide";
+    document.getElementById("feedback").style.display = "none";
 }
 function the_choice(){
-    document.getElementById("feedback").style.disp = "inline";
-    document.getElementById("choice").style.disp = "hide";
-    document.getElementById("adds_setting").style.disp = "hide";
-    document.getElementById("back").style.disp = "hide";
+    document.getElementById("feedback").style.display = "inline";
+    document.getElementById("choice").style.display = "none";
+    document.getElementById("adds_setting").style.display = "none";
+    document.getElementById("back").style.display = "none";
 
-    document.getElementById("hide_content").style.disp = "inline";
-    document.getElementById("unsuitable").style.disp = "inline";
-    document.getElementById("see_again").style.disp = "inline";
-    document.getElementById("not_interested").style.disp = "inline";
+    document.getElementById("none_content").style.display = "inline";
+    document.getElementById("unsuitable").style.display = "inline";
+    document.getElementById("see_again").style.display = "inline";
+    document.getElementById("not_interested").style.display = "inline";
 }
