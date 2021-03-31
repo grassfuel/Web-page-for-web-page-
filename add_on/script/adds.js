@@ -16,7 +16,7 @@ function add_close(){
     document.getElementById("adds_setting").style.display = "inline";
     document.getElementById("back").style.display = "inline";
 
-    document.getElementById("none_content").style.display = "none";
+    document.getElementById("hide_content").style.display = "none";
     document.getElementById("unsuitable").style.display = "none";
     document.getElementById("see_again").style.display = "none";
     document.getElementById("not_interested").style.display = "none";
